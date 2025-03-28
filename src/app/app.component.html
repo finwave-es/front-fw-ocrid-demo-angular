@@ -1,0 +1,32 @@
+<div class="container">
+    <h2 class="title">OCR ID Integration</h2>
+  
+    <input
+      type="text"
+      placeholder="API key (Required)*"
+      class="input"
+      [value]="apiKey"
+      (input)="apiKey = $any($event.target).value"
+    />
+    <input
+      type="text"
+      placeholder="Regula license (Required for local env)*"
+      class="input"
+      [value]="regulaLicense"
+      (input)="regulaLicense = $any($event.target).value"
+    />
+  
+    <button class="button" (click)="applyCredentials()" [disabled]="!apiKey || !regulaLicense">
+      APPLY CREDENTIALS
+    </button>
+  
+    <button class="button" (click)="startCamera()" [disabled]="!ocrReady">
+      START OCR
+    </button>
+  
+    <div class="videoContainer" #container></div>
+  
+    <div class="status">
+      {{ status }}
+    </div>
+  </div>
